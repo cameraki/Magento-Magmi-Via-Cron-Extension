@@ -1,5 +1,5 @@
 # Magento Magmi Via Cron Extension
-Magento extension to run Magmi via Magento's cron
+Magento extension to run Magmi via Magento's cron from a CSV file
 Note: This only works if you have Magmi (Magento Mass Importer)
 
 # What does this do?
@@ -11,7 +11,7 @@ This extension allows you to run Magmi automatically using Magento's cron. Great
 You need to make sure you have Magmi on your server.
 Then:
 - On line 10 & 11 of app/code/local/Oli/Magmi/Cron.php change the "/importer/...." to the location of your Magmi install. Eg, "/magmi/...."
-- On line 23 of app/code/local/Oli/Magmi/Cron.php change $magmiCsvFil to be the address of the CVS file you are importing from. Once you have changed the lines around line 66 to map the columns from the CSV file into an array. The keys of $newProductArray[$key]['...'] should match the attributes you are changing. Eg, if you want to up stock, you will use $newProductArray[$key]['qty'] since qty is what Magento's stock levels are.
+- On line 23 of app/code/local/Oli/Magmi/Cron.php change $magmiCsvFil to be the address of the CVS file you are importing from. Once you have changed this, change the lines around line 66 to map the columns from the CSV file into an array. The keys of $newProductArray[$key]['...'] should match the attributes you are changing. Eg, if you want to update stock levels, you will use $newProductArray[$key]['qty'] since 'qty' is what Magento's stock levels are.
 
 
 # Customisation
