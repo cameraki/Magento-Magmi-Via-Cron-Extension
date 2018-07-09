@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Oli_Magmi>
+            <version>0.0.1</version>
+        </Oli_Magmi>
+    </modules>
+    <global>
+        <models>
+            <oli_magmi>
+                <class>Oli_Magmi</class>
+            </oli_magmi>
+        </models>
+    </global>
+    <crontab>
+        <jobs>
+            <update_prices_via_magmi>
+                <schedule>
+                    <cron_expr>30 3 * * 2</cron_expr>
+                </schedule>
+                <run>
+                    <model>oli_magmi/cron::runMagmi</model>
+                </run>
+            </update_prices_via_magmi>
+        </jobs>
+    </crontab>
+</config>
