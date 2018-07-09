@@ -11,7 +11,8 @@ This extension allows you to run Magmi automatically using Magento's cron. Great
 You need to make sure you have Magmi on your server.
 Then:
 - On line 10 & 11 of app/code/local/Oli/Magmi/Cron.php change the "/importer/...." to the location of your Magmi install. Eg, "/magmi/...."
-- On line 38 of app/code/local/Oli/Magmi/Cron.php change this to match the name of the profile you have created in Magmi. You can use 'default' if you want to use the default profile however this is worth looking at because you want to make sure On the Fly indexing is turned off becauase this extension re-index's your magento store at the end. If you use a profile that has On the Fly indexing, it will re-index after each product, taking up a lot of server load for no reason. 
+- On line 23 of app/code/local/Oli/Magmi/Cron.php change $magmiCsvFil to be the address of the CVS file you are importing from. Once you have changed the lines around line 66 to map the columns from the CSV file into an array. The keys of $newProductArray[$key]['...'] should match the attributes you are changing. Eg, if you want to up stock, you will use $newProductArray[$key]['qty'] since qty is what Magento's stock levels are.
+
 
 # Customisation
 - On line 36 of app/code/local/Oli/Magmi/Cron.php this sets which Magento settings you want to re-index. The ones I add are:
@@ -20,6 +21,7 @@ Then:
  cataloginventory_stock
  You may want to add more or change these.
 - On line 37 of app/code/local/Oli/Magmi/Cron.php this is Magmi mode. "create" creates and updates items, "update" updates only, "xcreate" creates only.
+- On line 38 of app/code/local/Oli/Magmi/Cron.php change this to match the name of the profile you have created in Magmi. You can use 'default' if you want to use the default profile however this is worth looking at because you want to make sure On the Fly indexing is turned off becauase this extension re-index's your magento store at the end. If you use a profile that has On the Fly indexing, it will re-index after each product, taking up a lot of server load for no reason. 
 
 # More info
 You can find more information about the Magmi DataDump API here -> http://wiki.magmi.org/index.php/Magmi_Datapump_API
