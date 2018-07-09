@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Oli_Magmi>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Oli_Magmi>
+	</modules>
+</config>
